@@ -3,15 +3,18 @@ package one.digitalinnovation;
 public class ListaEncadeada<T> {
 	
 	No<T> noRefEntrada;
+	private int tamanhoLista;
 	
 	public ListaEncadeada() {
 		this.noRefEntrada = null;
+		this.tamanhoLista = 0;
 	}
 	
 	public void add(T conteudo) {
 		No<T> novoNo = new No<T>(conteudo);
 		if(this.isEmpty()) {
 			noRefEntrada = novoNo;
+			this.tamanhoLista++;
 			return;
 		}
 		No<T> noAuxiliar = noRefEntrada;
@@ -19,6 +22,7 @@ public class ListaEncadeada<T> {
 			noAuxiliar = noAuxiliar.getProximoNo();
 		}
 		noAuxiliar.setProximoNo(novoNo);
+		this.tamanhoLista++;
 	}
 	
 	public T get(int index) {
@@ -40,14 +44,17 @@ public class ListaEncadeada<T> {
 		No<T> noPivor = this.getNo(index);
 		if(index == 0) {
 			noRefEntrada = noPivor.getProximoNo();
+			this.tamanhoLista--;
 			return noPivor.getConteudo();
 		}
 		No<T> noAnterior = getNo(index - 1);
 		noAnterior.setProximoNo(noPivor.getProximoNo());
+		this.tamanhoLista--;
 		return noPivor.getConteudo();
 	}
 	
 	public int size() {
+/*
 		int tamanhoLista = 0;
 		No<T> noRefAuxiliar = noRefEntrada;
 		while(true) {
@@ -62,7 +69,8 @@ public class ListaEncadeada<T> {
 				break;
 			}
 		}
-		return tamanhoLista;
+*/
+		return this.tamanhoLista;
 	}
 	
 	public void validaIndice(int index) {

@@ -16,9 +16,14 @@ public class Main {
 		System.out.println(listaEncadeada.get(1));
 		System.out.println(listaEncadeada.get(2));
 		System.out.println(listaEncadeada.get(3));
+		System.out.println(listaEncadeada.get(4));
 		
 		System.out.println(listaEncadeada);
 		System.out.println(listaEncadeada.remove(4));
+		System.out.println(listaEncadeada);
+		
+		listaEncadeada.add("99");
+		
 		System.out.println(listaEncadeada);
 
 	}
